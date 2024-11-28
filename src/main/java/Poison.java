@@ -7,9 +7,10 @@ import java.awt.*;
  * File: Poison.java
  * Description:
  **/
-public class Poison extends Apple{
+public class Poison extends BoardObject{
     Color color = Color.MAGENTA;
-    public boolean checkCollide(int x, int y){
-        return (x != appleX) || (y != appleY);
+
+    public boolean checkPoison(int sX, int sY){
+        return (sX != x) || (sY != y);
     }
 }

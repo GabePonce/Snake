@@ -8,22 +8,19 @@ import java.util.Random;
  * File: Apple.java
  * Description:
  **/
-public class Apple {
-    Random random = new Random();
-    int appleX;
-    int appleY;
+public class Apple extends BoardObject {
     int applesEaten;
     Color color = Color.red;
-    public void newApple(){
-        appleX = random.nextInt((int)(ScreenInfo.SCREEN_WIDTH/ScreenInfo.UNIT_SIZE))*ScreenInfo.UNIT_SIZE;
-        appleY = random.nextInt((int)(ScreenInfo.SCREEN_HEIGHT/ScreenInfo.UNIT_SIZE))*ScreenInfo.UNIT_SIZE;
-    }
 
-    public void checkApple(int bodyParts, int x, int y){
-        if((x == appleX) && (y == appleY)){
+
+    public int checkApple(int bodyParts, int sX, int sY){
+        if((sX == x) && (sY == y)){
             bodyParts++;
             applesEaten++;
-            newApple();
+            newObject();
+            return bodyParts;
+        }else{
+            return bodyParts;
         }
     }
 }
